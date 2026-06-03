@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DEV.EKB — сайты, которые приносят клиентов</title>
+<meta name="description" content="Разработка современных сайтов, лендингов и Telegram-ботов для бизнеса в Екатеринбурге. Быстро, адаптивно, под ключ.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;800&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* ====== ПЕРЕМЕННЫЕ ТЕМЫ ====== */
+  :root{
+    --bg:#0b0c0e;
+    --bg-2:#101216;
+    --surface:#14161b;
+    --surface-2:#191c22;
+    --line:rgba(255,255,255,.08);
+    --line-2:rgba(255,255,255,.14);
+    --text:#f3f4f6;
+    --muted:#9aa0a8;
+    --muted-2:#6c727c;
+    --accent:#d8ff3e;
+    --accent-dim:#aecb2f;
+    --glow-a:#5b8cff;
+    --glow-b:#d8ff3e;
+    --radius:18px;
+    --maxw:1180px;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Onest',sans-serif;
+    line-height:1.55;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  /* зерно поверх всего для атмосферы */
+  body::after{
+    content:"";
+    position:fixed;inset:0;
+    pointer-events:none;z-index:9999;
+    opacity:.04;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+  h1,h2,h3,.display{font-family:'Unbounded',sans-serif;line-height:1.05;letter-spacing:-.02em}
+
+  .accent{color:var(--accent)}
+  .muted{color:var(--muted)}
+
+  /* ====== КНОПКИ ====== */
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;
+    font-family:'Onest',sans-serif;font-weight:600;font-size:15px;
+    padding:14px 24px;border-radius:999px;border:1px solid transparent;
+    cursor:pointer;transition:transform .25s cubic-bezier(.2,.8,.2,1),background .25s,border-color .25s,box-shadow .25s;
+    white-space:nowrap;
+  }
+  .btn-primary{background:var(--accent);color:#0b0c0e;box-shadow:0 0 0 0 rgba(216,255,62,.5)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 40px -8px rgba(216,255,62,.55)}
+  .btn-ghost{background:transparent;color:var(--text);border-color:var(--line-2)}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+  .btn svg{width:17px;height:17px}
+
+  /* ====== NAV ====== */
+  header{
+    position:sticky;top:0;z-index:100;
+    backdrop-filter:blur(14px);
+    background:rgba(11,12,14,.6);
+    border-bottom:1px solid var(--line);
+  }
+  nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .logo{font-family:'Unbounded',sans-serif;font-weight:800;font-size:19px;letter-spacing:-.02em;display:flex;align-items:center;gap:8px}
+  .logo .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 14px var(--accent)}
+  .nav-links{display:flex;gap:30px;align-items:center}
+  .nav-links a{font-size:14.5px;color:var(--muted);transition:color .2s}
+  .nav-links a:hover{color:var(--text)}
+  .nav-cta{display:flex;align-items:center;gap:14px}
+  @media(max-width:860px){.nav-links{display:none}}
+
+  /* ====== HERO ====== */
+  .hero{position:relative;padding:92px 0 80px;overflow:hidden}
+  .glow{position:absolute;border-radius:50%;filter:blur(110px);opacity:.45;pointer-events:none;z-index:0}
+  .glow-1{width:560px;height:560px;background:var(--glow-a);top:-220px;right:-120px;opacity:.22}
+  .glow-2{width:480px;height:480px;background:var(--glow-b);bottom:-260px;left:-160px;opacity:.16}
+  .hero .wrap{position:relative;z-index:1}
+
+  .pill{
+    display:inline-flex;align-items:center;gap:9px;
+    font-size:13.5px;color:var(--muted);
+    border:1px solid var(--line-2);border-radius:999px;
+    padding:7px 15px;margin-bottom:30px;
+  }
+  .pulse{width:8px;height:8px;border-radius:50%;background:#4ade80;position:relative}
+  .pulse::after{content:"";position:absolute;inset:0;border-radius:50%;background:#4ade80;animation:pulse 1.8s ease-out infinite}
+  @keyframes pulse{0%{transform:scale(1);opacity:.7}100%{transform:scale(3);opacity:0}}
+
+  .hero h1{font-size:clamp(38px,7vw,76px);font-weight:800;max-width:14ch}
+  .hero h1 .line{display:block;overflow:hidden}
+  .hero h1 .line span{display:block}
+  .hero p.lead{font-size:clamp(16px,2.3vw,21px);color:var(--muted);max-width:52ch;margin:28px 0 38px}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+
+  .stats{display:flex;gap:48px;margin-top:66px;flex-wrap:wrap}
+  .stat .num{font-family:'Unbounded',sans-serif;font-weight:700;font-size:clamp(28px,4vw,40px)}
+  .stat .lbl{font-size:13.5px;color:var(--muted);margin-top:4px}
+
+  /* ====== ОБЩИЕ СЕКЦИИ ====== */
+  section.block{padding:88px 0;position:relative}
+  .eyebrow{font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-dim);margin-bottom:16px}
+  .sec-title{font-size:clamp(28px,4.6vw,46px);font-weight:700;max-width:18ch}
+  .sec-sub{color:var(--muted);font-size:17px;max-width:54ch;margin-top:18px}
+  .sec-head{margin-bottom:52px}
+
+  /* ====== УСЛУГИ ====== */
+  .grid-services{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  @media(max-width:900px){.grid-services{grid-template-columns:1fr 1fr}}
+  @media(max-width:600px){.grid-services{grid-template-columns:1fr}}
+  .card{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    padding:30px 28px;transition:transform .3s cubic-bezier(.2,.8,.2,1),border-color .3s,background .3s;
+    position:relative;overflow:hidden;
+  }
+  .card:hover{transform:translateY(-5px);border-color:var(--line-2);background:var(--surface-2)}
+  .card .ico{
+    width:46px;height:46px;border-radius:12px;display:grid;place-items:center;
+    background:rgba(216,255,62,.1);border:1px solid rgba(216,255,62,.2);margin-bottom:20px;
+  }
+  .card .ico svg{width:22px;height:22px;stroke:var(--accent)}
+  .card h3{font-size:19px;font-weight:600;margin-bottom:9px;font-family:'Onest',sans-serif;letter-spacing:0}
+  .card p{font-size:14.5px;color:var(--muted)}
+
+  /* ====== ЦЕНЫ ====== */
+  .grid-price{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}
+  @media(max-width:880px){.grid-price{grid-template-columns:1fr}}
+  .price-card{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    padding:34px 30px;display:flex;flex-direction:column;position:relative;transition:border-color .3s,transform .3s;
+  }
+  .price-card:hover{transform:translateY(-4px);border-color:var(--line-2)}
+  .price-card.featured{border-color:var(--accent);background:linear-gradient(180deg,rgba(216,255,62,.06),transparent 60%)}
+  .price-card.featured::before{
+    content:"Чаще всего берут";position:absolute;top:-12px;left:30px;
+    background:var(--accent);color:#0b0c0e;font-size:12px;font-weight:600;
+    padding:5px 13px;border-radius:999px;
+  }
+  .price-card .tier{font-size:15px;color:var(--muted);font-weight:600;margin-bottom:14px}
+  .price-card .amount{font-family:'Unbounded',sans-serif;font-weight:700;font-size:34px;letter-spacing:-.02em}
+  .price-card .amount small{font-size:15px;color:var(--muted);font-weight:400;font-family:'Onest',sans-serif}
+  .price-card .term{font-size:13.5px;color:var(--muted-2);margin-top:6px}
+  .price-card ul{list-style:none;margin:24px 0 28px;display:flex;flex-direction:column;gap:12px}
+  .price-card li{font-size:14.5px;color:var(--text);display:flex;gap:11px;align-items:flex-start}
+  .price-card li svg{width:18px;height:18px;flex-shrink:0;stroke:var(--accent);margin-top:1px}
+  .price-card .btn{width:100%;justify-content:center;margin-top:auto}
+
+  /* ====== ПРОЦЕСС ====== */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  @media(max-width:880px){.steps{grid-template-columns:1fr 1fr}}
+  @media(max-width:520px){.steps{grid-template-columns:1fr}}
+  .step{position:relative;padding-top:8px}
+  .step .n{font-family:'Unbounded',sans-serif;font-weight:700;font-size:15px;color:#0b0c0e;background:var(--accent);width:34px;height:34px;border-radius:10px;display:grid;place-items:center;margin-bottom:18px}
+  .step h3{font-size:17px;font-weight:600;margin-bottom:8px;font-family:'Onest',sans-serif;letter-spacing:0}
+  .step p{font-size:14px;color:var(--muted)}
+
+  /* ====== ПОЧЕМУ Я ====== */
+  .why{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center}
+  @media(max-width:880px){.why{grid-template-columns:1fr;gap:40px}}
+  .why-list{display:flex;flex-direction:column;gap:22px}
+  .why-item{display:flex;gap:16px;align-items:flex-start}
+  .why-item .ck{width:24px;height:24px;border-radius:50%;background:rgba(216,255,62,.12);display:grid;place-items:center;flex-shrink:0;margin-top:2px}
+  .why-item .ck svg{width:13px;height:13px;stroke:var(--accent)}
+  .why-item h3{font-size:17px;font-weight:600;margin-bottom:4px;font-family:'Onest',sans-serif;letter-spacing:0}
+  .why-item p{font-size:14.5px;color:var(--muted)}
+  .why-visual{
+    aspect-ratio:1/1;border-radius:24px;border:1px solid var(--line);
+    background:
+      radial-gradient(circle at 30% 30%,rgba(91,140,255,.18),transparent 50%),
+      radial-gradient(circle at 75% 70%,rgba(216,255,62,.16),transparent 50%),
+      var(--surface);
+    position:relative;overflow:hidden;display:grid;place-items:center;
+  }
+  .why-visual .code{font-family:'Unbounded',sans-serif;font-weight:800;font-size:clamp(60px,12vw,120px);color:var(--accent);opacity:.9;letter-spacing:-.04em;line-height:.85;text-align:center}
+  .why-visual .code small{display:block;font-size:.18em;color:var(--text);letter-spacing:.1em;margin-top:18px;opacity:.6;font-weight:400}
+
+  /* ====== ПОРТФОЛИО ====== */
+  .grid-port{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  @media(max-width:900px){.grid-port{grid-template-columns:1fr 1fr}}
+  @media(max-width:600px){.grid-port{grid-template-columns:1fr}}
+  .port{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);background:var(--surface);transition:transform .3s,border-color .3s}
+  .port:hover{transform:translateY(-5px);border-color:var(--line-2)}
+  .port .thumb{aspect-ratio:4/3;display:grid;place-items:center;position:relative;overflow:hidden}
+  .port .thumb span{font-family:'Unbounded',sans-serif;font-weight:700;font-size:40px;color:rgba(255,255,255,.85)}
+  .port:nth-child(1) .thumb{background:linear-gradient(135deg,#1a2a4f,#0b0c0e)}
+  .port:nth-child(2) .thumb{background:linear-gradient(135deg,#3a2e12,#0b0c0e)}
+  .port:nth-child(3) .thumb{background:linear-gradient(135deg,#123a2e,#0b0c0e)}
+  .port .meta{padding:20px 22px}
+  .port .meta h3{font-size:16px;font-weight:600;font-family:'Onest',sans-serif;letter-spacing:0}
+  .port .meta p{font-size:13.5px;color:var(--muted);margin-top:4px}
+  .port .meta .tag{display:inline-block;font-size:12px;color:var(--accent-dim);border:1px solid var(--line-2);border-radius:999px;padding:3px 11px;margin-top:14px}
+
+  /* ====== КОНФИГУРАТОР / ЗАЯВКА ====== */
+  .order{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:clamp(28px,5vw,52px);position:relative;overflow:hidden}
+  .order::before{content:"";position:absolute;width:380px;height:380px;border-radius:50%;background:var(--accent);filter:blur(150px);opacity:.07;top:-120px;right:-80px}
+  .order .wrap-in{position:relative;z-index:1;max-width:640px}
+  .order h2{font-size:clamp(26px,4vw,40px);font-weight:700}
+  .order p.lead{color:var(--muted);margin:16px 0 32px;font-size:17px}
+  .field-label{font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin-bottom:13px;display:block}
+  .chips{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px}
+  .chip{
+    font-size:14.5px;padding:11px 18px;border-radius:999px;border:1px solid var(--line-2);
+    background:transparent;color:var(--text);cursor:pointer;transition:all .2s;user-select:none;font-family:'Onest',sans-serif;
+  }
+  .chip:hover{border-color:var(--accent)}
+  .chip.active{background:var(--accent);color:#0b0c0e;border-color:var(--accent);font-weight:600}
+  textarea{
+    width:100%;background:var(--bg-2);border:1px solid var(--line-2);border-radius:14px;
+    color:var(--text);font-family:'Onest',sans-serif;font-size:15px;padding:15px 17px;resize:vertical;min-height:96px;margin-bottom:26px;transition:border-color .2s;
+  }
+  textarea:focus{outline:none;border-color:var(--accent)}
+  textarea::placeholder{color:var(--muted-2)}
+  .order-actions{display:flex;gap:14px;flex-wrap:wrap}
+  .copied-note{font-size:13.5px;color:var(--accent);margin-top:16px;opacity:0;transition:opacity .3s;height:0}
+  .copied-note.show{opacity:1;height:auto}
+
+  /* ====== FAQ ====== */
+  .faq{display:flex;flex-direction:column;gap:12px;max-width:760px;margin:0 auto}
+  .faq-item{border:1px solid var(--line);border-radius:14px;background:var(--surface);overflow:hidden;transition:border-color .25s}
+  .faq-item:hover{border-color:var(--line-2)}
+  .faq-q{padding:21px 24px;font-size:16.5px;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;font-family:'Onest',sans-serif}
+  .faq-q .plus{font-size:22px;color:var(--accent);transition:transform .3s;flex-shrink:0;line-height:1}
+  .faq-item.open .plus{transform:rotate(45deg)}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;color:var(--muted);font-size:15px}
+  .faq-a div{padding:0 24px 22px}
+
+  /* ====== FOOTER ====== */
+  footer{border-top:1px solid var(--line);padding:54px 0 40px;margin-top:30px}
+  .foot{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:flex-start}
+  .foot .logo{margin-bottom:14px}
+  .foot p{color:var(--muted);font-size:14px;max-width:34ch}
+  .foot-links{display:flex;gap:14px;flex-wrap:wrap}
+  .foot-links a{width:42px;height:42px;border-radius:12px;border:1px solid var(--line-2);display:grid;place-items:center;transition:all .2s}
+  .foot-links a:hover{border-color:var(--accent);background:rgba(216,255,62,.06)}
+  .foot-links a svg{width:19px;height:19px;stroke:var(--text)}
+  .copyright{color:var(--muted-2);font-size:13px;margin-top:36px;border-top:1px solid var(--line);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+  /* ====== АНИМАЦИИ ПОЯВЛЕНИЯ ====== */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  /* стартовая анимация героя */
+  .hero h1 .line span{transform:translateY(110%);animation:rise .9s cubic-bezier(.2,.8,.2,1) forwards}
+  .hero h1 .line:nth-child(1) span{animation-delay:.05s}
+  .hero h1 .line:nth-child(2) span{animation-delay:.16s}
+  .hero h1 .line:nth-child(3) span{animation-delay:.27s}
+  @keyframes rise{to{transform:translateY(0)}}
+  .fade-up{opacity:0;animation:fadeUp .8s cubic-bezier(.2,.8,.2,1) forwards}
+  .fade-up.d1{animation-delay:.4s}.fade-up.d2{animation-delay:.5s}.fade-up.d3{animation-delay:.62s}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<!-- ========== NAV ========== -->
+<header>
+  <div class="wrap">
+    <nav>
+      <a href="#" class="logo"><span class="dot"></span><span id="logo-text">DEV.EKB</span></a>
+      <div class="nav-links">
+        <a href="#services">Услуги</a>
+        <a href="#pricing">Цены</a>
+        <a href="#process">Как работаем</a>
+        <a href="#portfolio">Работы</a>
+      </div>
+      <div class="nav-cta">
+        <a href="#order" class="btn btn-primary">Обсудить проект</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- ========== HERO ========== -->
+<section class="hero">
+  <div class="glow glow-1"></div>
+  <div class="glow glow-2"></div>
+  <div class="wrap">
+    <div class="pill fade-up"><span class="pulse"></span> Принимаю заказы · <span id="city-pill">Екатеринбург</span> и онлайн</div>
+    <h1>
+      <span class="line"><span>Сайты, которые</span></span>
+      <span class="line"><span>приводят <span class="accent">клиентов,</span></span></span>
+      <span class="line"><span>а не просто висят</span></span>
+    </h1>
+    <p class="lead fade-up d1">Делаю быстрые, современные и адаптивные сайты, лендинги и Telegram-боты для бизнеса. Под ключ — от идеи до запуска в сети.</p>
+    <div class="hero-cta fade-up d2">
+      <a href="#order" class="btn btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        Оставить заявку
+      </a>
+      <a href="#pricing" class="btn btn-ghost">Посмотреть цены</a>
+    </div>
+    <div class="stats fade-up d3">
+      <div class="stat"><div class="num accent">3–7</div><div class="lbl">дней на лендинг</div></div>
+      <div class="stat"><div class="num">100%</div><div class="lbl">адаптив под телефоны</div></div>
+      <div class="stat"><div class="num">∞</div><div class="lbl">правок до сдачи</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== УСЛУГИ ========== -->
+<section class="block" id="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Что я делаю</div>
+      <h2 class="sec-title">Услуги под задачи бизнеса</h2>
+      <p class="sec-sub">Не «сайт ради сайта», а инструмент, который продаёт, собирает заявки и работает на телефоне так же хорошо, как на компьютере.</p>
+    </div>
+    <div class="grid-services">
+      <div class="card reveal">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M3 9h18M9 21V9"/><rect x="3" y="3" width="18" height="18" rx="2"/></svg></div>
+        <h3>Лендинги</h3>
+        <p>Одностраничный сайт под конкретную услугу или товар. Цель — заявки и звонки. Идеален для рекламы.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 20h8M12 18v2"/></svg></div>
+        <h3>Сайты-визитки и многостраничники</h3>
+        <p>Полноценный сайт компании: услуги, о нас, цены, контакты, блог. Лицо бизнеса в интернете.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6L23 6H6"/></svg></div>
+        <h3>Интернет-магазины</h3>
+        <p>Каталог, корзина, приём оплаты онлайн. Чтобы продавать, пока вы спите.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M9 10h.01M15 10h.01M9 15c1 1 5 1 6 0"/></svg></div>
+        <h3>Telegram-боты и Mini Apps</h3>
+        <p>Приём заявок, запись, рассылки, мини-магазин прямо внутри Telegram. Без скачивания приложений.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg></div>
+        <h3>Доработка и правки</h3>
+        <p>Есть сайт, но что-то не работает или выглядит криво? Чиню, ускоряю, обновляю дизайн.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg></div>
+        <h3>Поддержка и хостинг</h3>
+        <p>Помогу выложить сайт в сеть, подключить домен и держать его живым после запуска.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== ЦЕНЫ ========== -->
+<section class="block" id="pricing" style="background:var(--bg-2)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Тарифы</div>
+      <h2 class="sec-title">Честные цены без сюрпризов</h2>
+      <p class="sec-sub">Финальную стоимость называю после короткого разговора о задаче. Ниже — отправные точки.</p>
+    </div>
+    <div class="grid-price">
+      <div class="price-card reveal">
+        <div class="tier">Лендинг</div>
+        <div class="amount">от 15 000 ₽</div>
+        <div class="term">срок 3–7 дней</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg> Одна страница под услугу/товар</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg> Адаптив под телефоны</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg> Форма заявки / кнопка в мессенджер</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg> Помощь с публикацией</li>
+        </ul>
+        <a href="#order" class="btn btn-ghost">Выбрать</a>
+      </div>
+      <div class="price-card featured reveal">
+        <div class="tier">Сайт компании</div>
+        <div class="amount">от 30 000 ₽</div>
+        <div class="term">срок 1–2 недели</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg> До 5–7 страниц</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg> Уникальный дизайн под бренд</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg> Базовая SEO-настройка</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg> Подключение домена и почты</li>
+        </ul>
+        <a href="#order" class="btn btn-primary">Выбрать</a>
+      </div>
+      <div class="price-card reveal">
+        <div class="tier">Магазин / бот</div>
+        <div class="amount">от 50 000 ₽</div>
+        <div class="term">срок 2–4 недели</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg> Каталог и корзина или логика бота</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg> Приём онлайн-оплаты</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg> Личный кабинет / админка</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg> Месяц поддержки в подарок</li>
+        </ul>
+        <a href="#order" class="btn btn-ghost">Выбрать</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== ПРОЦЕСС ========== -->
+<section class="block" id="process">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Как мы работаем</div>
+      <h2 class="sec-title">Простой путь до запуска</h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="n">1</div><h3>Заявка</h3><p>Оставляете заявку, я задаю пару вопросов о задаче и сроках.</p></div>
+      <div class="step reveal"><div class="n">2</div><h3>Бриф и смета</h3><p>Согласуем, что именно делаем, и я называю точную цену и срок.</p></div>
+      <div class="step reveal"><div class="n">3</div><h3>Разработка</h3><p>Делаю дизайн и собираю сайт, показываю промежуточный результат.</p></div>
+      <div class="step reveal"><div class="n">4</div><h3>Запуск</h3><p>Выкладываем в сеть, подключаем домен. Сайт начинает работать.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== ПОЧЕМУ Я ========== -->
+<section class="block" id="why" style="background:var(--bg-2)">
+  <div class="wrap">
+    <div class="why">
+      <div class="reveal">
+        <div class="eyebrow">Почему со мной удобно</div>
+        <h2 class="sec-title" style="margin-bottom:34px">Не агентство —<br>прямой контакт с разработчиком</h2>
+        <div class="why-list">
+          <div class="why-item"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></span><div><h3>Современный стек</h3><p>Пишу на актуальных технологиях — сайт быстрый и не разваливается.</p></div></div>
+          <div class="why-item"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></span><div><h3>Цены ниже агентств</h3><p>Без офисов и менеджеров между нами — вы платите за работу, а не за наценку.</p></div></div>
+          <div class="why-item"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></span><div><h3>На связи</h3><p>Отвечаю быстро, держу в курсе на каждом этапе, объясняю простым языком.</p></div></div>
+          <div class="why-item"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></span><div><h3>Идеальный телефон</h3><p>80% людей зайдут с телефона — проверяю, чтобы там всё было безупречно.</p></div></div>
+        </div>
+      </div>
+      <div class="why-visual reveal">
+        <div class="code">&lt;/&gt;<small>СДЕЛАНО С НУЛЯ</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== ПОРТФОЛИО ========== -->
+<section class="block" id="portfolio">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Работы</div>
+      <h2 class="sec-title">Примеры проектов</h2>
+      <p class="sec-sub">Замените эти карточки на свои реальные работы — добавьте скриншот, название и ссылку.</p>
+    </div>
+    <div class="grid-port">
+      <a href="#" class="port reveal"><div class="thumb"><span>01</span></div><div class="meta"><h3>Лендинг для барбершопа</h3><p>Запись и заявки выросли за счёт удобной формы</p><span class="tag">Лендинг</span></div></a>
+      <a href="#" class="port reveal"><div class="thumb"><span>02</span></div><div class="meta"><h3>Сайт кофейни</h3><p>Меню, доставка и онлайн-витрина</p><span class="tag">Многостраничник</span></div></a>
+      <a href="#" class="port reveal"><div class="thumb"><span>03</span></div><div class="meta"><h3>Бот для записи в студию</h3><p>Запись клиентов прямо в Telegram</p><span class="tag">Telegram-бот</span></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== ЗАЯВКА / КОНФИГУРАТОР ========== -->
+<section class="block" id="order">
+  <div class="wrap">
+    <div class="order reveal">
+      <div class="wrap-in">
+        <div class="eyebrow">Заявка за минуту</div>
+        <h2>Расскажите, что нужно — соберу заявку за вас</h2>
+        <p class="lead">Выберите тип проекта, добавьте пару слов, и нажмите кнопку — текст заявки уйдёт мне в мессенджер автоматически.</p>
+
+        <span class="field-label">Что нужно сделать?</span>
+        <div class="chips" id="chips">
+          <button class="chip" data-v="Лендинг">Лендинг</button>
+          <button class="chip" data-v="Сайт компании">Сайт компании</button>
+          <button class="chip" data-v="Интернет-магазин">Интернет-магазин</button>
+          <button class="chip" data-v="Telegram-бот">Telegram-бот</button>
+          <button class="chip" data-v="Доработка сайта">Доработка</button>
+          <button class="chip" data-v="Пока не определился">Не определился</button>
+        </div>
+
+        <span class="field-label">Коротко о задаче</span>
+        <textarea id="msg" placeholder="Например: нужен лендинг для автосервиса, чтобы принимать заявки на ремонт. Бюджет ориентировочно 20 000 ₽."></textarea>
+
+        <div class="order-actions">
+          <button class="btn btn-primary" id="send-tg">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 3L2 11l6 2 2 7 3-4 5 4 4-17z"/></svg>
+            Отправить в Telegram
+          </button>
+          <button class="btn btn-ghost" id="send-wa">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.5 8.5 0 0 1-12.5 7.5L3 21l2-5.5A8.5 8.5 0 1 1 21 11.5z"/></svg>
+            В WhatsApp
+          </button>
+        </div>
+        <div class="copied-note" id="note">✓ Заявка скопирована — вставьте её в чат, если он не подставился автоматически.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FAQ ========== -->
+<section class="block" id="faq" style="background:var(--bg-2)">
+  <div class="wrap">
+    <div class="sec-head reveal" style="text-align:center">
+      <div class="eyebrow">Вопросы</div>
+      <h2 class="sec-title" style="margin:0 auto">Частые вопросы</h2>
+    </div>
+    <div class="faq">
+      <div class="faq-item reveal"><div class="faq-q">Сколько стоит сделать сайт?<span class="plus">+</span></div><div class="faq-a"><div>Зависит от задачи. Лендинг — от 15 000 ₽, сайт компании — от 30 000 ₽, магазин или бот — от 50 000 ₽. Точную цену называю после короткого разговора, чтобы не было сюрпризов.</div></div></div>
+      <div class="faq-item reveal"><div class="faq-q">Как происходит оплата?<span class="plus">+</span></div><div class="faq-a"><div>Обычно 50% предоплата перед началом работы и 50% после сдачи готового сайта. Условия можем обсудить под ваш проект.</div></div></div>
+      <div class="faq-item reveal"><div class="faq-q">А если мне не понравится результат?<span class="plus">+</span></div><div class="faq-a"><div>Я показываю промежуточные версии и вношу правки до тех пор, пока вам не понравится. Финал принимаем только когда вы довольны.</div></div></div>
+      <div class="faq-item reveal"><div class="faq-q">Поможете выложить сайт в интернет?<span class="plus">+</span></div><div class="faq-a"><div>Да. Помогу купить домен, подключить хостинг и опубликовать сайт, чтобы он открывался по вашему адресу.</div></div></div>
+      <div class="faq-item reveal"><div class="faq-q">Вы работаете только по Екатеринбургу?<span class="plus">+</span></div><div class="faq-a"><div>Нет, всё делаю онлайн — могу работать с заказчиком из любого города. Просто живу в Екатеринбурге.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a href="#" class="logo"><span class="dot"></span>DEV.EKB</a>
+        <p>Разработка сайтов, лендингов и Telegram-ботов для бизнеса. Екатеринбург и онлайн.</p>
+      </div>
+      <div class="foot-links">
+        <a id="f-tg" href="#" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M22 3L2 11l6 2 2 7 3-4 5 4 4-17z"/></svg></a>
+        <a id="f-wa" href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M21 11.5a8.5 8.5 0 0 1-12.5 7.5L3 21l2-5.5A8.5 8.5 0 1 1 21 11.5z"/></svg></a>
+        <a id="f-mail" href="#" aria-label="Почта"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a>
+      </div>
+    </div>
+    <div class="copyright">
+      <span>© <span id="year"></span> DEV.EKB. Все права защищены.</span>
+      <span>Сделано на чистом коде ⚡</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* ======================================================
+     НАСТРОЙКИ — поменяй эти значения на свои.
+     Это единственное место, которое нужно отредактировать.
+     ====================================================== */
+  const CONFIG = {
+    studio:   "DEV.EKB",          // название студии (как хочешь, чтобы тебя называли)
+    city:     "Екатеринбург",     // твой город
+    telegram: "your_username",    // твой ник в Telegram БЕЗ символа @
+    whatsapp: "79000000000",      // твой номер для WhatsApp в формате 7XXXXXXXXXX
+    email:    "hello@example.ru"  // твоя почта
+  };
+
+  /* применяем настройки к странице */
+  document.getElementById('logo-text').textContent = CONFIG.studio;
+  document.getElementById('city-pill').textContent = CONFIG.city;
+  document.getElementById('year').textContent = new Date().getFullYear();
+  document.getElementById('f-tg').href   = `https://t.me/${CONFIG.telegram}`;
+  document.getElementById('f-wa').href   = `https://wa.me/${CONFIG.whatsapp}`;
+  document.getElementById('f-mail').href = `mailto:${CONFIG.email}`;
+
+  /* выбор типа проекта (чипы) */
+  let chosen = "";
+  const chips = document.querySelectorAll('.chip');
+  chips.forEach(c => c.addEventListener('click', () => {
+    chips.forEach(x => x.classList.remove('active'));
+    c.classList.add('active');
+    chosen = c.dataset.v;
+  }));
+
+  /* собираем текст заявки */
+  function buildMessage(){
+    const desc = document.getElementById('msg').value.trim();
+    let t = "Здравствуйте! Хочу заказать сайт.";
+    if (chosen) t += `\nТип проекта: ${chosen}.`;
+    if (desc)   t += `\nЗадача: ${desc}`;
+    return t;
+  }
+
+  /* копирование в буфер (на случай, если чат не подставит текст) */
+  function copyToClipboard(text){
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(text).catch(()=>{});
+    }
+    const note = document.getElementById('note');
+    note.classList.add('show');
+    setTimeout(()=>note.classList.remove('show'), 4000);
+  }
+
+  /* отправка в Telegram: открываем чат + копируем текст заявки */
+  document.getElementById('send-tg').addEventListener('click', () => {
+    const text = buildMessage();
+    copyToClipboard(text);
+    window.open(`https://t.me/${CONFIG.telegram}`, '_blank');
+  });
+
+  /* отправка в WhatsApp: текст подставляется автоматически */
+  document.getElementById('send-wa').addEventListener('click', () => {
+    const text = buildMessage();
+    window.open(`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(text)}`, '_blank');
+  });
+
+  /* раскрывающийся FAQ */
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const q = item.querySelector('.faq-q');
+    const a = item.querySelector('.faq-a');
+    q.addEventListener('click', () => {
+      const open = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.faq-a').style.maxHeight = null;
+      });
+      if (!open){
+        item.classList.add('open');
+        a.style.maxHeight = a.scrollHeight + 'px';
+      }
+    });
+  });
+
+  /* появление блоков при скролле */
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
