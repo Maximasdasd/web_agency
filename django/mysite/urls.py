@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from core.views import home
+from core.views import test
 from core.views import lead_submit
 
 
@@ -24,5 +25,6 @@ from core.views import lead_submit
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
+    path('test/', test, name='test'),
     path('lead-submit/', lead_submit, name='lead_submit'),
 ]

@@ -27,6 +27,15 @@ TELEGRAM_CHAT_ID = os.getenv('TELEGRAM_CHAT_ID')
 FASTAPI_URL = os.getenv('FASTAPI_URL')
 FASTAPI_API_KEY = os.getenv('FASTAPI_API_KEY')
 
+PROXY_URL = os.getenv('TELEGRAM_PROXY')
+if PROXY_URL:
+    TELEGRAM_PROXY = {
+        'http': PROXY_URL,
+        'https': PROXY_URL
+    }
+else:
+    TELEGRAM_PROXY = None
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent

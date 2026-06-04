@@ -12,7 +12,8 @@ from django.http import HttpResponse
 def home(request):
     return render(request, "index.html")
 
-
+def test(request):
+    return render(request, "index3.html")
 
 def lead_submit(request):
     """
@@ -54,7 +55,7 @@ def lead_submit(request):
             "phone": phone,
             "telegram": telegram.replace('@', '') if telegram else None,
             "category": category,
-            "description": description or None,
+            "description": description,
         }
         
         # Отправляем в FastAPI (сохраняем в БД через API)
@@ -66,7 +67,7 @@ def lead_submit(request):
             )
             
             if response.status_code == 201:
-                messages.success(request, 'Заявка успешно отправлена! Я свяжусь с вами в ближайшее время.')
+                messages.success(request, 'Заявка успешно отправлена! с вами свяжутся в ближайшее время.')
                 
                 # Отправляем уведомление в Telegram
                 try:
@@ -104,12 +105,10 @@ def send_telegram_message(lead_data):
     if lead_data.get('description'):
         text += f"\n📝 **Описание:**\n{lead_data['description']}\n"
     
-    text += f"\n🕒 **IP:** {lead_data.get('ip_address', '')}"
-    
     url = f"https://api.telegram.org/bot{settings.TELEGRAM_BOT_TOKEN}/sendMessage"
     payload = {
         "chat_id": settings.TELEGRAM_CHAT_ID,
         "text": text,
         "parse_mode": "Markdown"
     }
-    requests.post(url, json=payload, timeout=10)
+    requests.post(url, json=payload, proxies=settings.TELEGRAM_PROXY, timeout=10)
