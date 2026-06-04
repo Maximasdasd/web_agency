@@ -8,6 +8,7 @@ class Settings(BaseSettings):
     BD_USER: str = Field(default="postgres")
     BD_PASSWORD: str
     BD_NAME: str 
+    API_SECRET_KEY: str = "qweqwe" 
     
     model_config = SettingsConfigDict(
         env_file=".env", # ../.env # .env (для миграций для докера а также для вставки фейк данных)
