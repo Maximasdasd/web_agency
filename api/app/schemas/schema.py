@@ -9,6 +9,7 @@ class TicketCreate(BaseModel):
     phone: str
     telegram: Optional[str]
     category: Category
+    description: str
 
 class TicketResponse(TicketCreate):
     id_ticket: int

@@ -19,4 +19,5 @@ class ticket(SQLModel, table=True):
   phone: str
   telegram: str = Field(nullable=True)
   category: Category
+  description: str
   created_at: datetime = Field(default_factory=datetime.now)

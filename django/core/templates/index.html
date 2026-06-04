@@ -4,40 +4,137 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DEV.EKB — сайты, которые приносят клиентов</title>
-<meta name="description" content="Разработка современных сайтов, лендингов и Telegram-ботов для бизнеса в Екатеринбурге. Быстро, адаптивно, под ключ.">
+
+<!-- ========== SEO: основные мета-теги ========== -->
+<title>Разработка сайтов и Telegram-ботов в Екатеринбурге — DEV.EKB</title>
+<meta name="description" content="Создание современных адаптивных сайтов, лендингов и Telegram-ботов для бизнеса в Екатеринбурге и онлайн. Сроки от 3 дней, цены от 15 000 ₽, бесконечные правки до сдачи.">
+<meta name="keywords" content="разработка сайтов Екатеринбург, создание лендинга, заказать сайт, telegram бот, веб-разработчик, сайт под ключ, интернет-магазин, адаптивный сайт">
+<meta name="author" content="DEV.EKB">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0b0c0e">
+<meta name="format-detection" content="telephone=no">
+<!-- замените на адрес вашего сайта -->
+<link rel="canonical" href="https://dev-ekb.ru/">
+
+<!-- ========== SEO: Open Graph (соцсети, мессенджеры) ========== -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DEV.EKB">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="Разработка сайтов и Telegram-ботов в Екатеринбурге — DEV.EKB">
+<meta property="og:description" content="Современные адаптивные сайты, лендинги и Telegram-боты для бизнеса. Под ключ — от идеи до запуска. Сроки от 3 дней.">
+<!-- замените URL и картинку (рекомендуется 1200×630) на свои -->
+<meta property="og:url" content="https://dev-ekb.ru/">
+<meta property="og:image" content="https://dev-ekb.ru/static/og-image.jpg">
+
+<!-- ========== SEO: Twitter Card ========== -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Разработка сайтов и Telegram-ботов — DEV.EKB">
+<meta name="twitter:description" content="Современные адаптивные сайты, лендинги и Telegram-боты для бизнеса. Под ключ — от идеи до запуска.">
+<meta name="twitter:image" content="https://dev-ekb.ru/static/og-image.jpg">
+
+<!-- ========== Иконка (брендовый лайм-кружок, без отдельного файла) ========== -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230b0c0e'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%23d8ff3e'/%3E%3C/svg%3E">
+
+<!-- ========== Шрифты ========== -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;800&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{% static 'style.css' %}">
+
+<!-- ========== SEO: структурированные данные (Schema.org) ========== -->
+<!-- Информация о компании. Замените телефон/почту/домен на свои. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "DEV.EKB",
+  "description": "Разработка современных адаптивных сайтов, лендингов и Telegram-ботов для бизнеса в Екатеринбурге и онлайн.",
+  "url": "https://dev-ekb.ru/",
+  "image": "https://dev-ekb.ru/static/og-image.jpg",
+  "telephone": "+7-900-000-00-00",
+  "email": "hello@example.ru",
+  "priceRange": "от 15 000 ₽",
+  "areaServed": [
+    { "@type": "City", "name": "Екатеринбург" },
+    { "@type": "Country", "name": "Россия" }
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Екатеринбург",
+    "addressCountry": "RU"
+  },
+  "sameAs": [
+    "https://t.me/your_username"
+  ],
+  "makesOffer": [
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Лендинг" }, "priceCurrency": "RUB", "price": "15000" },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Сайт компании" }, "priceCurrency": "RUB", "price": "30000" },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Интернет-магазин или Telegram-бот" }, "priceCurrency": "RUB", "price": "50000" }
+  ]
+}
+</script>
+<!-- FAQ для расширенного сниппета в поиске -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Сколько стоит сделать сайт?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Зависит от задачи. Лендинг — от 15 000 ₽, сайт компании — от 30 000 ₽, магазин или бот — от 50 000 ₽. Точную цену называю после короткого разговора, чтобы не было сюрпризов." } },
+    { "@type": "Question", "name": "Как происходит оплата?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Обычно 50% предоплата перед началом работы и 50% после сдачи готового сайта. Условия можем обсудить под ваш проект." } },
+    { "@type": "Question", "name": "А если мне не понравится результат?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Я показываю промежуточные версии и вношу правки до тех пор, пока вам не понравится. Финал принимаем только когда вы довольны." } },
+    { "@type": "Question", "name": "Поможете выложить сайт в интернет?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Да. Помогу купить домен, подключить хостинг и опубликовать сайт, чтобы он открывался по вашему адресу." } },
+    { "@type": "Question", "name": "Вы работаете только по Екатеринбургу?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Нет, всё делаю онлайн — могу работать с заказчиком из любого города. Просто живу в Екатеринбурге." } }
+  ]
+}
+</script>
 </head>
 <body>
 
 <!-- ========== NAV ========== -->
 <header>
   <div class="wrap">
-    <nav>
-      <a href="#" class="logo"><span class="dot"></span><span id="logo-text">DEV.EKB</span></a>
+    <nav aria-label="Основная навигация">
+      <a href="#" class="logo" aria-label="DEV.EKB — на главную"><span class="dot" aria-hidden="true"></span><span id="logo-text">DEV.EKB</span></a>
       <div class="nav-links">
         <a href="#services">Услуги</a>
         <a href="#pricing">Цены</a>
         <a href="#process">Как работаем</a>
         <a href="#portfolio">Работы</a>
+        <a href="#faq">Вопросы</a>
       </div>
       <div class="nav-cta">
         <a href="#order" class="btn btn-primary">Обсудить проект</a>
       </div>
+      <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
     </nav>
+  </div>
+  <!-- мобильное меню -->
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#services">Услуги</a>
+    <a href="#pricing">Цены</a>
+    <a href="#process">Как работаем</a>
+    <a href="#portfolio">Работы</a>
+    <a href="#faq">Вопросы</a>
+    <a href="#order" class="btn btn-primary">Обсудить проект</a>
   </div>
 </header>
 
+<main>
+
 <!-- ========== HERO ========== -->
-<section class="hero">
-  <div class="glow glow-1"></div>
-  <div class="glow glow-2"></div>
+<section class="hero" aria-labelledby="hero-title">
+  <div class="glow glow-1" aria-hidden="true"></div>
+  <div class="glow glow-2" aria-hidden="true"></div>
   <div class="wrap">
-    <div class="pill fade-up"><span class="pulse"></span> Принимаю заказы · <span id="city-pill">Екатеринбург</span> и онлайн</div>
-    <h1>
+    <p class="pill fade-up"><span class="pulse" aria-hidden="true"></span> Принимаю заказы · <span id="city-pill">Екатеринбург</span> и онлайн</p>
+    <h1 id="hero-title">
       <span class="line"><span>Сайты, которые</span></span>
       <span class="line"><span>приводят <span class="accent">клиентов,</span></span></span>
       <span class="line"><span>а не просто висят</span></span>
@@ -45,7 +142,7 @@
     <p class="lead fade-up d1">Делаю быстрые, современные и адаптивные сайты, лендинги и Telegram-боты для бизнеса. Под ключ — от идеи до запуска в сети.</p>
     <div class="hero-cta fade-up d2">
       <a href="#order" class="btn btn-primary">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         Оставить заявку
       </a>
       <a href="#pricing" class="btn btn-ghost">Посмотреть цены</a>
@@ -59,54 +156,54 @@
 </section>
 
 <!-- ========== УСЛУГИ ========== -->
-<section class="block" id="services">
+<section class="block" id="services" aria-labelledby="services-title">
   <div class="wrap">
     <div class="sec-head reveal">
-      <div class="eyebrow">Что я делаю</div>
-      <h2 class="sec-title">Услуги под задачи бизнеса</h2>
+      <p class="eyebrow">Что я делаю</p>
+      <h2 class="sec-title" id="services-title">Услуги под задачи бизнеса</h2>
       <p class="sec-sub">Не «сайт ради сайта», а инструмент, который продаёт, собирает заявки и работает на телефоне так же хорошо, как на компьютере.</p>
     </div>
     <div class="grid-services">
-      <div class="card reveal">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M3 9h18M9 21V9"/><rect x="3" y="3" width="18" height="18" rx="2"/></svg></div>
+      <article class="card reveal">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M3 9h18M9 21V9"/><rect x="3" y="3" width="18" height="18" rx="2"/></svg></div>
         <h3>Лендинги</h3>
         <p>Одностраничный сайт под конкретную услугу или товар. Цель — заявки и звонки. Идеален для рекламы.</p>
-      </div>
-      <div class="card reveal">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 20h8M12 18v2"/></svg></div>
+      </article>
+      <article class="card reveal">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 20h8M12 18v2"/></svg></div>
         <h3>Сайты-визитки и многостраничники</h3>
         <p>Полноценный сайт компании: услуги, о нас, цены, контакты, блог. Лицо бизнеса в интернете.</p>
-      </div>
-      <div class="card reveal">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6L23 6H6"/></svg></div>
+      </article>
+      <article class="card reveal">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6L23 6H6"/></svg></div>
         <h3>Интернет-магазины</h3>
         <p>Каталог, корзина, приём оплаты онлайн. Чтобы продавать, пока вы спите.</p>
-      </div>
-      <div class="card reveal">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M9 10h.01M15 10h.01M9 15c1 1 5 1 6 0"/></svg></div>
+      </article>
+      <article class="card reveal">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M9 10h.01M15 10h.01M9 15c1 1 5 1 6 0"/></svg></div>
         <h3>Telegram-боты и Mini Apps</h3>
         <p>Приём заявок, запись, рассылки, мини-магазин прямо внутри Telegram. Без скачивания приложений.</p>
-      </div>
-      <div class="card reveal">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg></div>
+      </article>
+      <article class="card reveal">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg></div>
         <h3>Доработка и правки</h3>
         <p>Есть сайт, но что-то не работает или выглядит криво? Чиню, ускоряю, обновляю дизайн.</p>
-      </div>
-      <div class="card reveal">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg></div>
+      </article>
+      <article class="card reveal">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg></div>
         <h3>Поддержка и хостинг</h3>
         <p>Помогу выложить сайт в сеть, подключить домен и держать его живым после запуска.</p>
-      </div>
+      </article>
     </div>
   </div>
 </section>
 
 <!-- ========== ЦЕНЫ ========== -->
-<section class="block" id="pricing" style="background:var(--bg-2)">
+<section class="block" id="pricing" style="background:var(--bg-2)" aria-labelledby="pricing-title">
   <div class="wrap">
     <div class="sec-head reveal">
-      <div class="eyebrow">Тарифы</div>
-      <h2 class="sec-title">Честные цены без сюрпризов</h2>
+      <p class="eyebrow">Тарифы</p>
+      <h2 class="sec-title" id="pricing-title">Честные цены без сюрпризов</h2>
       <p class="sec-sub">Финальную стоимость называю после короткого разговора о задаче. Ниже — отправные точки.</p>
     </div>
     <div class="grid-price">
@@ -115,47 +212,47 @@
         <div class="amount">от 15 000 ₽</div>
         <div class="term">срок 3–7 дней</div>
         <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg> Одна страница под услугу/товар</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg> Адаптив под телефоны</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg> Форма заявки / кнопка в мессенджер</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg> Помощь с публикацией</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg> Одна страница под услугу/товар</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg> Адаптив под телефоны</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg> Форма заявки / кнопка в мессенджер</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg> Помощь с публикацией</li>
         </ul>
-        <a href="#order" class="btn btn-ghost">Выбрать</a>
+        <button class="btn btn-ghost" data-pick="Лендинг">Выбрать</button>
       </div>
       <div class="price-card featured reveal">
         <div class="tier">Сайт компании</div>
         <div class="amount">от 30 000 ₽</div>
         <div class="term">срок 1–2 недели</div>
         <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg> До 5–7 страниц</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg> Уникальный дизайн под бренд</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg> Базовая SEO-настройка</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg> Подключение домена и почты</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg> До 5–7 страниц</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg> Уникальный дизайн под бренд</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg> Базовая SEO-настройка</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg> Подключение домена и почты</li>
         </ul>
-        <a href="#order" class="btn btn-primary">Выбрать</a>
+        <button class="btn btn-primary" data-pick="Сайт компании">Выбрать</button>
       </div>
       <div class="price-card reveal">
         <div class="tier">Магазин / бот</div>
         <div class="amount">от 50 000 ₽</div>
         <div class="term">срок 2–4 недели</div>
         <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg> Каталог и корзина или логика бота</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg> Приём онлайн-оплаты</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg> Личный кабинет / админка</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg> Месяц поддержки в подарок</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg> Каталог и корзина или логика бота</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg> Приём онлайн-оплаты</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg> Личный кабинет / админка</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg> Месяц поддержки в подарок</li>
         </ul>
-        <a href="#order" class="btn btn-ghost">Выбрать</a>
+        <button class="btn btn-ghost" data-pick="Интернет-магазин">Выбрать</button>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ========== ПРОЦЕСС ========== -->
-<section class="block" id="process">
+<section class="block" id="process" aria-labelledby="process-title">
   <div class="wrap">
     <div class="sec-head reveal">
-      <div class="eyebrow">Как мы работаем</div>
-      <h2 class="sec-title">Простой путь до запуска</h2>
+      <p class="eyebrow">Как мы работаем</p>
+      <h2 class="sec-title" id="process-title">Простой путь до запуска</h2>
     </div>
     <div class="steps">
       <div class="step reveal"><div class="n">1</div><h3>Заявка</h3><p>Оставляете заявку, я задаю пару вопросов о задаче и сроках.</p></div>
@@ -167,105 +264,106 @@
 </section>
 
 <!-- ========== ПОЧЕМУ Я ========== -->
-<section class="block" id="why" style="background:var(--bg-2)">
+<section class="block" id="why" style="background:var(--bg-2)" aria-labelledby="why-title">
   <div class="wrap">
     <div class="why">
       <div class="reveal">
-        <div class="eyebrow">Почему со мной удобно</div>
-        <h2 class="sec-title" style="margin-bottom:34px">Не агентство —<br>прямой контакт с разработчиком</h2>
+        <p class="eyebrow">Почему со мной удобно</p>
+        <h2 class="sec-title" id="why-title" style="margin-bottom:34px">Не агентство —<br>прямой контакт с разработчиком</h2>
         <div class="why-list">
-          <div class="why-item"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></span><div><h3>Современный стек</h3><p>Пишу на актуальных технологиях — сайт быстрый и не разваливается.</p></div></div>
-          <div class="why-item"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></span><div><h3>Цены ниже агентств</h3><p>Без офисов и менеджеров между нами — вы платите за работу, а не за наценку.</p></div></div>
-          <div class="why-item"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></span><div><h3>На связи</h3><p>Отвечаю быстро, держу в курсе на каждом этапе, объясняю простым языком.</p></div></div>
-          <div class="why-item"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></span><div><h3>Идеальный телефон</h3><p>80% людей зайдут с телефона — проверяю, чтобы там всё было безупречно.</p></div></div>
+          <div class="why-item"><span class="ck" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></span><div><h3>Современный стек</h3><p>Пишу на актуальных технологиях — сайт быстрый и не разваливается.</p></div></div>
+          <div class="why-item"><span class="ck" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></span><div><h3>Цены ниже агентств</h3><p>Без офисов и менеджеров между нами — вы платите за работу, а не за наценку.</p></div></div>
+          <div class="why-item"><span class="ck" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></span><div><h3>На связи</h3><p>Отвечаю быстро, держу в курсе на каждом этапе, объясняю простым языком.</p></div></div>
+          <div class="why-item"><span class="ck" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></span><div><h3>Идеальный телефон</h3><p>80% людей зайдут с телефона — проверяю, чтобы там всё было безупречно.</p></div></div>
         </div>
       </div>
       <div class="why-visual reveal">
-        <div class="code">&lt;/&gt;<small>СДЕЛАНО С НУЛЯ</small></div>
+        <div class="code" aria-hidden="true">&lt;/&gt;<small>СДЕЛАНО С НУЛЯ</small></div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ========== ПОРТФОЛИО ========== -->
-<section class="block" id="portfolio">
+<section class="block" id="portfolio" aria-labelledby="portfolio-title">
   <div class="wrap">
     <div class="sec-head reveal">
-      <div class="eyebrow">Работы</div>
-      <h2 class="sec-title">Примеры проектов</h2>
+      <p class="eyebrow">Работы</p>
+      <h2 class="sec-title" id="portfolio-title">Примеры проектов</h2>
       <p class="sec-sub">Замените эти карточки на свои реальные работы — добавьте скриншот, название и ссылку.</p>
     </div>
     <div class="grid-port">
-      <a href="#" class="port reveal"><div class="thumb"><span>01</span></div><div class="meta"><h3>Лендинг для барбершопа</h3><p>Запись и заявки выросли за счёт удобной формы</p><span class="tag">Лендинг</span></div></a>
-      <a href="#" class="port reveal"><div class="thumb"><span>02</span></div><div class="meta"><h3>Сайт кофейни</h3><p>Меню, доставка и онлайн-витрина</p><span class="tag">Многостраничник</span></div></a>
-      <a href="#" class="port reveal"><div class="thumb"><span>03</span></div><div class="meta"><h3>Бот для записи в студию</h3><p>Запись клиентов прямо в Telegram</p><span class="tag">Telegram-бот</span></div></a>
+      <a href="#" class="port reveal"><div class="thumb"><span aria-hidden="true">01</span></div><div class="meta"><h3>Лендинг для барбершопа</h3><p>Запись и заявки выросли за счёт удобной формы</p><span class="tag">Лендинг</span></div></a>
+      <a href="#" class="port reveal"><div class="thumb"><span aria-hidden="true">02</span></div><div class="meta"><h3>Сайт кофейни</h3><p>Меню, доставка и онлайн-витрина</p><span class="tag">Многостраничник</span></div></a>
+      <a href="#" class="port reveal"><div class="thumb"><span aria-hidden="true">03</span></div><div class="meta"><h3>Бот для записи в студию</h3><p>Запись клиентов прямо в Telegram</p><span class="tag">Telegram-бот</span></div></a>
     </div>
   </div>
 </section>
 
 <!-- ========== ЗАЯВКА / КОНФИГУРАТОР ========== -->
-<section class="block" id="order">
+<section class="block" id="order" aria-labelledby="order-title">
   <div class="wrap">
     <div class="order reveal">
       <div class="wrap-in">
-        <div class="eyebrow">Заявка за минуту</div>
-        <h2>Расскажите, что нужно — соберу заявку за вас</h2>
-        <p class="lead">Выберите тип проекта, добавьте пару слов, и нажмите кнопку — текст заявки уйдёт мне в мессенджер автоматически.</p>
+        <p class="eyebrow">Заявка за минуту</p>
+        <h2 id="order-title">Расскажите, что нужно — соберу заявку за вас</h2>
+        <p class="lead">Выберите тип проекта, добавьте пару слов и нажмите кнопку. Останется только указать контакты — и заявка уйдёт мне в Telegram.</p>
 
         <span class="field-label">Что нужно сделать?</span>
-        <div class="chips" id="chips">
-          <button class="chip" data-v="Лендинг">Лендинг</button>
-          <button class="chip" data-v="Сайт компании">Сайт компании</button>
-          <button class="chip" data-v="Интернет-магазин">Интернет-магазин</button>
-          <button class="chip" data-v="Telegram-бот">Telegram-бот</button>
-          <button class="chip" data-v="Доработка сайта">Доработка</button>
-          <button class="chip" data-v="Пока не определился">Не определился</button>
+        <div class="chips" id="chips" role="group" aria-label="Тип проекта">
+          <button type="button" class="chip" data-v="Лендинг">Лендинг</button>
+          <button type="button" class="chip" data-v="Сайт компании">Сайт компании</button>
+          <button type="button" class="chip" data-v="Интернет-магазин">Интернет-магазин</button>
+          <button type="button" class="chip" data-v="Telegram-бот">Telegram-бот</button>
+          <button type="button" class="chip" data-v="Доработка сайта">Доработка</button>
+          <button type="button" class="chip" data-v="Пока не определился">Не определился</button>
         </div>
 
-        <span class="field-label">Коротко о задаче</span>
+        <label class="field-label" for="msg">Коротко о задаче</label>
         <textarea id="msg" placeholder="Например: нужен лендинг для автосервиса, чтобы принимать заявки на ремонт. Бюджет ориентировочно 20 000 ₽."></textarea>
 
         <div class="order-actions">
-          <button class="btn btn-primary" id="send-tg">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 3L2 11l6 2 2 7 3-4 5 4 4-17z"/></svg>
+          <button class="btn btn-primary" id="send-tg" type="button">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M22 3L2 11l6 2 2 7 3-4 5 4 4-17z"/></svg>
             Отправить в Telegram
           </button>
         </div>
-        <div class="copied-note" id="note">✓ Заявка скопирована — вставьте её в чат, если он не подставился автоматически.</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ========== FAQ ========== -->
-<section class="block" id="faq" style="background:var(--bg-2)">
+<section class="block" id="faq" style="background:var(--bg-2)" aria-labelledby="faq-title">
   <div class="wrap">
     <div class="sec-head reveal" style="text-align:center">
-      <div class="eyebrow">Вопросы</div>
-      <h2 class="sec-title" style="margin:0 auto">Частые вопросы</h2>
+      <p class="eyebrow">Вопросы</p>
+      <h2 class="sec-title" id="faq-title" style="margin:0 auto">Частые вопросы</h2>
     </div>
     <div class="faq">
-      <div class="faq-item reveal"><div class="faq-q">Сколько стоит сделать сайт?<span class="plus">+</span></div><div class="faq-a"><div>Зависит от задачи. Лендинг — от 15 000 ₽, сайт компании — от 30 000 ₽, магазин или бот — от 50 000 ₽. Точную цену называю после короткого разговора, чтобы не было сюрпризов.</div></div></div>
-      <div class="faq-item reveal"><div class="faq-q">Как происходит оплата?<span class="plus">+</span></div><div class="faq-a"><div>Обычно 50% предоплата перед началом работы и 50% после сдачи готового сайта. Условия можем обсудить под ваш проект.</div></div></div>
-      <div class="faq-item reveal"><div class="faq-q">А если мне не понравится результат?<span class="plus">+</span></div><div class="faq-a"><div>Я показываю промежуточные версии и вношу правки до тех пор, пока вам не понравится. Финал принимаем только когда вы довольны.</div></div></div>
-      <div class="faq-item reveal"><div class="faq-q">Поможете выложить сайт в интернет?<span class="plus">+</span></div><div class="faq-a"><div>Да. Помогу купить домен, подключить хостинг и опубликовать сайт, чтобы он открывался по вашему адресу.</div></div></div>
-      <div class="faq-item reveal"><div class="faq-q">Вы работаете только по Екатеринбургу?<span class="plus">+</span></div><div class="faq-a"><div>Нет, всё делаю онлайн — могу работать с заказчиком из любого города. Просто живу в Екатеринбурге.</div></div></div>
+      <div class="faq-item reveal"><button class="faq-q" type="button" aria-expanded="false">Сколько стоит сделать сайт?<span class="plus" aria-hidden="true">+</span></button><div class="faq-a"><div>Зависит от задачи. Лендинг — от 15 000 ₽, сайт компании — от 30 000 ₽, магазин или бот — от 50 000 ₽. Точную цену называю после короткого разговора, чтобы не было сюрпризов.</div></div></div>
+      <div class="faq-item reveal"><button class="faq-q" type="button" aria-expanded="false">Как происходит оплата?<span class="plus" aria-hidden="true">+</span></button><div class="faq-a"><div>Обычно 50% предоплата перед началом работы и 50% после сдачи готового сайта. Условия можем обсудить под ваш проект.</div></div></div>
+      <div class="faq-item reveal"><button class="faq-q" type="button" aria-expanded="false">А если мне не понравится результат?<span class="plus" aria-hidden="true">+</span></button><div class="faq-a"><div>Я показываю промежуточные версии и вношу правки до тех пор, пока вам не понравится. Финал принимаем только когда вы довольны.</div></div></div>
+      <div class="faq-item reveal"><button class="faq-q" type="button" aria-expanded="false">Поможете выложить сайт в интернет?<span class="plus" aria-hidden="true">+</span></button><div class="faq-a"><div>Да. Помогу купить домен, подключить хостинг и опубликовать сайт, чтобы он открывался по вашему адресу.</div></div></div>
+      <div class="faq-item reveal"><button class="faq-q" type="button" aria-expanded="false">Вы работаете только по Екатеринбургу?<span class="plus" aria-hidden="true">+</span></button><div class="faq-a"><div>Нет, всё делаю онлайн — могу работать с заказчиком из любого города. Просто живу в Екатеринбурге.</div></div></div>
     </div>
   </div>
 </section>
+
+</main>
 
 <!-- ========== FOOTER ========== -->
 <footer>
   <div class="wrap">
     <div class="foot">
       <div>
-        <a href="#" class="logo"><span class="dot"></span>DEV.EKB</a>
+        <a href="#" class="logo"><span class="dot" aria-hidden="true"></span>DEV.EKB</a>
         <p>Разработка сайтов, лендингов и Telegram-ботов для бизнеса. Екатеринбург и онлайн.</p>
       </div>
       <div class="foot-links">
-        <a id="f-tg" href="#" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M22 3L2 11l6 2 2 7 3-4 5 4 4-17z"/></svg></a>
-        <a id="f-wa" href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M21 11.5a8.5 8.5 0 0 1-12.5 7.5L3 21l2-5.5A8.5 8.5 0 1 1 21 11.5z"/></svg></a>
-        <a id="f-mail" href="#" aria-label="Почта"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a>
+        <a id="f-tg" href="#" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true"><path d="M22 3L2 11l6 2 2 7 3-4 5 4 4-17z"/></svg></a>
+        <a id="f-wa" href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true"><path d="M21 11.5a8.5 8.5 0 0 1-12.5 7.5L3 21l2-5.5A8.5 8.5 0 1 1 21 11.5z"/></svg></a>
+        <a id="f-mail" href="#" aria-label="Почта"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a>
       </div>
     </div>
     <div class="copyright">
@@ -275,17 +373,100 @@
   </div>
 </footer>
 
+<!-- ========== МОДАЛКА ЗАЯВКИ ========== -->
+<div class="modal" id="lead-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal-dialog">
+
+    <!-- форма -->
+    <div id="lead-form-wrap">
+      <div class="modal-head">
+        <h3 id="modal-title">Оставить заявку</h3>
+        <button class="modal-close" id="modal-close" type="button" aria-label="Закрыть">✕</button>
+      </div>
+      <p class="modal-sub">Заполните контакты — отвечу в течение рабочего дня.</p>
+
+      <form id="lead-form" action="{% url 'lead_submit' %}" method="post" novalidate>
+        {% csrf_token %}
+        <div class="modal-field">
+          <label for="lf-name">Имя <span class="req" aria-hidden="true">*</span></label>
+          <input type="text" id="lf-name" name="name" autocomplete="name" placeholder="Как к вам обращаться" required>
+          <small class="err-msg" data-for="name"></small>
+        </div>
+
+        <div class="modal-field">
+          <label for="lf-phone">Телефон <span class="req" aria-hidden="true">*</span></label>
+          <input type="tel" id="lf-phone" name="phone" autocomplete="tel" inputmode="tel" placeholder="+7 ___ ___-__-__" required>
+          <small class="err-msg" data-for="phone"></small>
+        </div>
+
+        <div class="modal-field">
+          <label for="lf-email">Почта <span class="opt">— необязательно</span></label>
+          <input type="email" id="lf-email" name="email" autocomplete="email" inputmode="email" placeholder="you@mail.ru">
+          <small class="err-msg" data-for="email"></small>
+        </div>
+
+        <div class="modal-field">
+          <label for="lf-tg">Telegram <span class="opt">— необязательно</span></label>
+          <input type="text" id="lf-tg" name="telegram" placeholder="@username">
+        </div>
+
+        <div class="modal-field">
+          <label for="lf-category">Категория</label>
+          <select id="lf-category" name="category">
+            <option value="Лендинг">Лендинг</option>
+            <option value="Сайт компании">Сайт компании</option>
+            <option value="Интернет-магазин">Интернет-магазин</option>
+            <option value="Telegram-бот">Telegram-бот</option>
+            <option value="Доработка сайта">Доработка сайта</option>
+            <option value="Пока не определился" selected>Пока не определился</option>
+          </select>
+        </div>
+
+        <div class="modal-field">
+          <label for="lf-desc">Описание задачи</label>
+          <textarea id="lf-desc" name="description" placeholder="Пара слов о проекте"></textarea>
+        </div>
+
+        <button class="btn btn-primary modal-submit" id="lead-submit" type="submit">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M22 3L2 11l6 2 2 7 3-4 5 4 4-17z"/></svg>
+          Отправить в Telegram
+        </button>
+        <p class="modal-note">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p>
+      </form>
+    </div>
+
+    <!-- экран успеха -->
+    <div class="modal-done" id="lead-done">
+      <div class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></div>
+      <h3 id="done-title">Готово!</h3>
+      <p id="done-text">Заявка собрана. Открываю Telegram…</p>
+      <button class="btn btn-ghost" id="done-close" type="button">Закрыть</button>
+    </div>
+
+  </div>
+</div>
+
 <script>
   /* ======================================================
-     НАСТРОЙКИ — поменяй эти значения на свои.
-     Это единственное место, которое нужно отредактировать.
+     НАСТРОЙКИ — поменяйте значения на свои.
+     Это главное место, которое нужно отредактировать.
      ====================================================== */
   const CONFIG = {
-    studio:   "DEV.EKB",          // название студии (как хочешь, чтобы тебя называли)
-    city:     "Екатеринбург",     // твой город
-    telegram: "your_username",    // твой ник в Telegram БЕЗ символа @
-    whatsapp: "79000000000",      // твой номер для WhatsApp в формате 7XXXXXXXXXX
-    email:    "hello@example.ru"  // твоя почта
+    studio:   "DEV.EKB",          // название студии
+    city:     "Екатеринбург",     // ваш город
+    telegram: "your_username",    // ваш ник в Telegram БЕЗ символа @
+    whatsapp: "79000000000",      // номер для WhatsApp в формате 7XXXXXXXXXX
+    email:    "hello@example.ru", // ваша почта
+
+    /* способ отправки заявки:
+       "telegram_link" — копируем текст и открываем ваш чат в Telegram (работает без сервера);
+       "backend"       — отправляем POST-запросом на ваш бэкенд (рекомендуется для продакшена,
+                         токен бота остаётся на сервере). Если запрос не пройдёт — мягкий
+                         откат на режим "telegram_link". */
+    lead: {
+      mode:     "backend",
+      endpoint: "/lead/"          // используется только при mode: "backend"
+    }
   };
 
   /* применяем настройки к странице */
@@ -296,41 +477,170 @@
   document.getElementById('f-wa').href   = `https://wa.me/${CONFIG.whatsapp}`;
   document.getElementById('f-mail').href = `mailto:${CONFIG.email}`;
 
-  /* выбор типа проекта (чипы) */
+  /* ---------- мобильное меню (бургер) ---------- */
+  const burger = document.getElementById('burger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  function setMenu(open){
+    burger.classList.toggle('open', open);
+    mobileMenu.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    burger.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');
+  }
+  burger.addEventListener('click', () => setMenu(!mobileMenu.classList.contains('open')));
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+
+  /* ---------- выбор типа проекта (чипы) ---------- */
   let chosen = "";
   const chips = document.querySelectorAll('.chip');
   chips.forEach(c => c.addEventListener('click', () => {
+    const isActive = c.classList.contains('active');
     chips.forEach(x => x.classList.remove('active'));
-    c.classList.add('active');
-    chosen = c.dataset.v;
+    if (!isActive){ c.classList.add('active'); chosen = c.dataset.v; }
+    else { chosen = ""; }
   }));
 
-  /* собираем текст заявки */
-  function buildMessage(){
-    const desc = document.getElementById('msg').value.trim();
-    let t = "Здравствуйте! Хочу заказать сайт.";
-    if (chosen) t += `\nТип проекта: ${chosen}.`;
-    if (desc)   t += `\nЗадача: ${desc}`;
-    return t;
-  }
-
-  /* копирование в буфер (на случай, если чат не подставит текст) */
-  function copyToClipboard(text){
-    if (navigator.clipboard) {
-      navigator.clipboard.writeText(text).catch(()=>{});
-    }
-    const note = document.getElementById('note');
-    note.classList.add('show');
-    setTimeout(()=>note.classList.remove('show'), 4000);
-  }
-
-  /* отправка в Telegram: открываем чат + копируем текст заявки */
-  document.getElementById('send-tg').addEventListener('click', () => {
-    const text = buildMessage();
-    copyToClipboard(text);
-    window.open(`https://t.me/${CONFIG.telegram}`, '_blank');
+  /* кнопки «Выбрать» в тарифах: подставляют категорию и ведут к конфигуратору */
+  document.querySelectorAll('[data-pick]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const v = btn.dataset.pick;
+      chips.forEach(x => x.classList.toggle('active', x.dataset.v === v));
+      chosen = v;
+      document.getElementById('order').scrollIntoView({ behavior: 'smooth' });
+    });
   });
 
+  /* ======================================================
+     МОДАЛКА ЗАЯВКИ
+     ====================================================== */
+  const modal      = document.getElementById('lead-modal');
+  const form       = document.getElementById('lead-form');
+  const formWrap   = document.getElementById('lead-form-wrap');
+  const doneScreen = document.getElementById('lead-done');
+  const submitBtn  = document.getElementById('lead-submit');
+  let lastFocused  = null;
+
+  function openModal(category){
+    lastFocused = document.activeElement;
+
+    // категория, выбранная на момент клика
+    if (category) form.elements['category'].value = category;
+    // описание, написанное ранее в конфигураторе
+    form.elements['description'].value = document.getElementById('msg').value.trim();
+
+    // сбрасываем возможные прошлые ошибки и экран успеха
+    clearErrors();
+    doneScreen.classList.remove('show');
+    formWrap.style.display = '';
+    submitBtn.disabled = false;
+
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => form.elements['name'].focus(), 80);
+  }
+
+  function closeModal(){
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (lastFocused) lastFocused.focus();
+  }
+
+  // открытие из конфигуратора
+  document.getElementById('send-tg').addEventListener('click', () => openModal(chosen));
+  // закрытие
+  document.getElementById('modal-close').addEventListener('click', closeModal);
+  document.getElementById('done-close').addEventListener('click', closeModal);
+  modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.classList.contains('open')) closeModal(); });
+
+  /* ---------- валидация ---------- */
+  function setError(name, text){
+    const input = form.elements[name];
+    input.classList.add('invalid');
+    const msg = form.querySelector(`.err-msg[data-for="${name}"]`);
+    if (msg) msg.textContent = text;
+  }
+  function clearErrors(){
+    form.querySelectorAll('.invalid').forEach(el => el.classList.remove('invalid'));
+    form.querySelectorAll('.err-msg').forEach(el => el.textContent = '');
+  }
+  function validate(){
+    clearErrors();
+    let ok = true;
+    const name  = form.elements['name'].value.trim();
+    const phone = form.elements['phone'].value.trim();
+    const email = form.elements['email'].value.trim();
+
+    if (!name){ setError('name', 'Укажите, как к вам обращаться'); ok = false; }
+
+    const digits = phone.replace(/\D/g, '');
+    if (!phone){ setError('phone', 'Введите номер телефона'); ok = false; }
+    else if (digits.length < 10){ setError('phone', 'Похоже, в номере не хватает цифр'); ok = false; }
+
+    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ setError('email', 'Проверьте адрес почты'); ok = false; }
+
+    return ok;
+  }
+
+  /* ---------- сбор данных и текста заявки ---------- */
+  function collect(){
+    const f = form.elements;
+    const tg = f.telegram.value.trim()
+      .replace(/^@/, '')
+      .replace(/^https?:\/\/t\.me\//i, '');
+    return {
+      name:        f.name.value.trim(),
+      phone:       f.phone.value.trim(),
+      email:       f.email.value.trim(),
+      telegram:    tg,
+      category:    f.category.value,
+      description: f.description.value.trim()
+    };
+  }
+  function buildText(d){
+    const dash = '—';
+    return [
+      `🆕 Новая заявка с сайта ${CONFIG.studio}`,
+      ``,
+      `👤 Имя: ${d.name}`,
+      `📞 Телефон: ${d.phone}`,
+      `✉️ Почта: ${d.email || dash}`,
+      `💬 Telegram: ${d.telegram ? '@' + d.telegram : dash}`,
+      `🧩 Категория: ${d.category || dash}`,
+      `📝 Задача: ${d.description || dash}`
+    ].join('\n');
+  }
+
+  function copyText(text){
+    if (navigator.clipboard && window.isSecureContext){
+      navigator.clipboard.writeText(text).catch(() => {});
+    } else {
+      const ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+    }
+  }
+
+  // помощник для CSRF-токена Django (нужен только в режиме "backend")
+  function getCookie(name){
+    const m = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
+    return m ? decodeURIComponent(m[1]) : '';
+  }
+
+  function showDone(title, text){
+    document.getElementById('done-title').textContent = title;
+    document.getElementById('done-text').textContent = text;
+    formWrap.style.display = 'none';
+    doneScreen.classList.add('show');
+  }
+
+
+  /* ======================================================
+     ПРОЧЕЕ
+     ====================================================== */
 
   /* раскрывающийся FAQ */
   document.querySelectorAll('.faq-item').forEach(item => {
@@ -341,10 +651,12 @@
       document.querySelectorAll('.faq-item').forEach(i => {
         i.classList.remove('open');
         i.querySelector('.faq-a').style.maxHeight = null;
+        i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
       });
       if (!open){
         item.classList.add('open');
         a.style.maxHeight = a.scrollHeight + 'px';
+        q.setAttribute('aria-expanded', 'true');
       }
     });
   });

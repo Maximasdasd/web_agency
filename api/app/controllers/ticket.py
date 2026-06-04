@@ -16,13 +16,13 @@ class TicketController:
         return paginate(self.db, query)
     
     def create_ticket(self, ticket_data: TicketCreate):
-            
         new_ticket = TicketModel(
             name=ticket_data.name,
             email=ticket_data.email,
             phone=ticket_data.phone,
             telegram=ticket_data.telegram,
-            category=ticket_data.category
+            category=ticket_data.category,
+            description=ticket_data.description
         )
         self.db.add(new_ticket)
         self.db.commit()
