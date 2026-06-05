@@ -10,10 +10,10 @@ from django.http import HttpResponse
 
 
 def home(request):
-    return render(request, "index.html")
+    return render(request, "index3.html")
 
 def test(request):
-    return render(request, "index3.html")
+    return render(request, "index.html")
 
 def lead_submit(request):
     """
